@@ -1,0 +1,16 @@
+import org.junit.jupiter.api.Test;
+import shell.utils.FileSystem;
+
+import java.io.File;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class LsCommandTest {
+    @Test
+    public void testLsInRoot() throws Exception {
+        FileSystem fs = new FileSystem("test.tar");
+        LsCommand ls = new LsCommand(fs);
+        // Предположим, что в корне "test.tar" есть файл "file1.txt"
+        assertTrue(fs.getCurrentDirectory().listFiles()[0].getName().equals("file1.txt"));
+    }
+}
